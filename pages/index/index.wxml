@@ -1,0 +1,18 @@
+<!--pages/index/index.wxml-->
+<deliver wx:if="{{PageCur=='deliver'}}"></deliver>
+<express wx:if="{{PageCur=='express'}}"></express>
+<home wx:if="{{PageCur=='home'}}"></home>
+<view class="cu-bar tabbar bg-white shadow foot">
+  <view class="action {{PageCur=='express'?'text-green':'text-gray'}}"  bindtap="NavChange" data-cur="express">
+    <view class="cuIcon-homefill"></view> 查快递
+  </view>
+  <view class="action text-gray add-action" bindtap="NavChange" data-cur="deliver">
+    <button class="cu-btn cuIcon-add bg-green shadow"></button>
+    寄快递
+  </view>
+  <view class="action {{PageCur=='home'?'text-green':'text-gray'}}"  bindtap="NavChange" data-cur="home">
+    <view class="cuIcon-my">
+    </view>
+    我的
+  </view>
+</view>

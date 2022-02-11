@@ -1,0 +1,62 @@
+/* pages/express/express.wxss */
+.header {
+  height: 40px;
+  width: 100%;
+  background-color: #338dfc;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+}
+
+.inp_box {
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.inp {
+  width: calc(100% - 70px);
+  display: inline-block;
+  vertical-align: middle;
+  height: 34px;
+  padding-left: 10px;
+  border: 1px solid #338dfc;
+  border-radius: 5px;
+
+}
+
+.qrcode_images {
+  display: inline-block;
+  vertical-align: middle;
+  width: 36px;
+  height: 36px;
+  margin-left: 10px;
+}
+
+.banner {
+  width: 100%;
+}
+
+.infolist {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.infoTime {
+  font-size: 12px;
+  color: #999;
+}
+
+.infotext {
+  font-size: 14px;
+  color: #333;
+}
+
+.infoItem {
+  border-bottom: 2px solid #ddd;
+  padding: 10px;
+}
+
+.footer {
+  height: 50px;
+}

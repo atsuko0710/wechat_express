@@ -1,0 +1,5 @@
+/* pages/deliver/deliver.wxss */
+
+.footer {
+  height: 50px;
+}

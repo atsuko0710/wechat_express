@@ -1,0 +1,19 @@
+<!--pages/express/express.wxml-->
+<view>
+  <image class="banner" mode='widthFix' src="../../images/banner2.jpg"></image>
+  <view class="inp_box">
+    <input class="inp" type="text" placeholder="请输入快递单号" bindinput="waybillInput" />
+    <image bindtap="startSearch" src="../../images/common/search.png" class="qrcode_images"></image>
+  </view>
+
+  <view class="cu-timeline" wx:for="{{infoList}}" wx:for-index="index" wx:for-item="item" wx:key="index">
+    <view class="cu-time">{{index}}</view>
+    <view class="cu-item cur cuIcon-noticefill"  wx:for="{{item}}" wx:for-item="infoItem" wx:key="infoItem">
+      <view class="content bg-green shadow-blur">
+        <text>{{infoItem.time}}</text> {{infoItem.content}}
+      </view>
+    </view>
+  </view>
+
+  <view class="footer"></view>
+</view>

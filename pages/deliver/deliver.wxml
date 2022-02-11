@@ -1,0 +1,124 @@
+<!--pages/deliver/deliver.wxml-->
+<view class="bg-img bg-mask padding-tb-xl" style="background-image: url('../../images/kd.png');height: 430rpx;">
+
+</view>
+<form bindsubmit="formSubmit">
+	<view class="cu-form-group align-start">
+		<view class="title"><text class="text-black text-bold">发件人</text></view>
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" name="temp_send_address" placeholder="例如:北京市大兴区科创十一街京东集团总部,京小东,138****0000"></textarea>
+	</view>
+	<view class="cu-form-group align-start">
+		<view class="title"><text class="text-black text-bold">收件人</text></view>
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" name="temp_receive_address" placeholder="例如:北京市大兴区科创十一街京东集团总部,京小东,138****0000"></textarea>
+	</view>
+
+	<view class="cu-form-group margin-top">
+		<view class="title">包裹数量</view>
+		<input name="package_count"></input>
+		<view class="cu-capsule radius">
+			<view class="cu-tag line-blue">
+				个
+			</view>
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="title"><text class="text-black text-bold">寄托物 *</text></view>
+		<input name="item_name" placeholder="普货"></input>
+	</view>
+
+	<view class="cu-form-group margin-top">
+		<view class="title"> <text class="text-black text-bold">重量 *</text></view>
+		<input name="weight"></input>
+		<view class="cu-capsule radius">
+			<view class="cu-tag line-blue">
+				kg
+			</view>
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">长</view>
+		<input name="vloum_long"></input>
+		<view class="cu-capsule radius">
+			<view class="cu-tag line-blue">
+				cm
+			</view>
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">宽</view>
+		<input name="vloum_width"></input>
+		<view class="cu-capsule radius">
+			<view class="cu-tag line-blue">
+				cm
+			</view>
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">高</view>
+		<input name="vloum_height"></input>
+		<view class="cu-capsule radius">
+			<view class="cu-tag line-blue">
+				cm
+			</view>
+		</view>
+	</view>
+
+	<view class="cu-form-group margin-top">
+		<view class="title">保价</view>
+		<input name="insured" placeholder="未保价货品最高赔付6倍运费"></input>
+		<view class="cu-capsule radius">
+			<view class="cu-tag line-blue">
+				元
+			</view>
+		</view>
+	</view>
+	<view class="cu-form-group align-start">
+		<view class="title">备注</view>
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" name="remark" placeholder="例如进入小区的规定，需要携带身份证等"></textarea>
+	</view>
+
+	<view class="padding flex flex-direction">
+		<button class="cu-btn bg-blue lg" form-type="submit">查询运费</button>
+	</view>
+
+	<!-- 提示model -->
+	<view class="cu-modal {{isShow}}">
+		<view class="cu-dialog">
+			<view class="cu-bar bg-white justify-end">
+				<view class="content">提示</view>
+				<view class="action" bindtap="hideModal">
+					<text class="cuIcon-close text-red"></text>
+				</view>
+			</view>
+			<view class="padding-xl">
+				{{hintString}}
+			</view>
+		</view>
+	</view>
+
+	<!-- 底部model -->
+	<view class="cu-modal bottom-modal {{isShowBottom}}">
+		<view class="cu-dialog">
+			<view class="cu-bar bg-white">
+				<view class="action text-blue" bindtap="hideBottomModal">取消</view>
+			</view>
+			<view class="padding-xl">
+				<view class="grid col-2 padding-sm">
+					<view class="padding-sm" wx:for="{{channelList}}" wx:key>
+						<view class="bg-cyan padding radius text-center shadow-blur" bindtap="onChannelClick" data-index='{{index}}'>
+							<view class="text-lg">渠道： {{item.channel}}</view>
+							<view class="margin-top-sm text-Abc">价格：{{item.price}}</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<!-- 加载model -->
+	<view class='cu-load load-modal' wx:if="{{loadModal}}">
+		<view class='gray-text'>加载中...</view>
+	</view>
+</form>
+
+<view class="footer"></view>

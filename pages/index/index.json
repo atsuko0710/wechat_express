@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "deliver": "/pages/deliver/deliver",
+    "express": "/pages/express/express",
+    "home": "/pages/home/home"
+  }
+}

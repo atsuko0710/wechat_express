@@ -5,54 +5,70 @@ Page({
     channelList: [],
     CustomBar: app.globalData.CustomBar,
     loadModal: false,
+    expressInfo: []
   },
   onChannelClick: function (e) {
     var that = this;
     var index = e.currentTarget.dataset.index
+    var expressInfo = [];
     console.log(that.data.channelList[index])
-    that.setData({
-      isShowBottom: "",
+
+    wx.getStorage({
+      key: 'expressInfo',
+      success(res) {
+        expressInfo = res.data[0]
+      }
     })
-    that.showModal("支付功能正在加速完善中，请联系客服下单！")
-    
-    // wx.login({
-    //   success(res) {
-    //     if (res.code) {
-    //       //发起网络请求
-    //       wx.request({
-    //         url: 'https://money.atsukodan.cn/test',
-    //         header: {
-    //           "Content-Type": "application/x-www-form-urlencoded",
-    //           "headerSignature": app.globalData.signature
-    //         },
-    //         method: "POST",
-    //         data: {
-    //           code: res.code
-    //         },
-    //         success: function (payRes) {
-    //           console.log(payRes.data)
-    //           wx.requestPayment({
-    //             nonceStr: payRes.data.data.nonceStr,
-    //             package: payRes.data.data.package,
-    //             paySign: payRes.data.data.paySign,
-    //             signType: payRes.data.data.signType,
-    //             timeStamp: payRes.data.data.timestamp,
-    //             success: function (res) {
-    //               console.log('付款成功')
-    //               console.log(res)
-    //             },
-    //             fail: function (res) {
-    //               console.log('付款失败')
-    //               console.log(res)
-    //             }
-    //           })
-    //         }
-    //       })
-    //     } else {
-    //       console.log('登录失败！' + res.errMsg)
-    //     }
-    // }
+
+    // that.setData({
+    //   isShowBottom: "",
     // })
+    // that.showModal("支付功能正在加速完善中，请联系客服下单！")
+
+    wx.login({
+      success(res) {
+        if (res.code) {
+          //发起网络请求
+          wx.request({
+            url: 'https://money.atsukodan.cn/test',
+            header: {
+              "Content-Type": "application/x-www-form-urlencoded",
+              "headerSignature": app.globalData.signature
+            },
+            method: "POST",
+            data: {
+              code: res.code,
+              channel: that.data.channelList[index].channel,
+              price: that.data.channelList[index].price,
+              freight: that.data.channelList[index].freight,
+              temp_receive_address: expressInfo.temp_receive_address,
+              temp_send_address: expressInfo.temp_send_address,
+              remark: expressInfo.remark,
+            },
+            success: function (payRes) {
+              console.log(payRes.data)
+              // wx.requestPayment({
+              //   nonceStr: payRes.data.data.nonceStr,
+              //   package: payRes.data.data.package,
+              //   paySign: payRes.data.data.paySign,
+              //   signType: payRes.data.data.signType,
+              //   timeStamp: payRes.data.data.timestamp,
+              //   success: function (res) {
+              //     console.log('付款成功')
+              //     console.log(res)
+              //   },
+              //   fail: function (res) {
+              //     console.log('付款失败')
+              //     console.log(res)
+              //   }
+              // })
+            }
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
   },
   formSubmit: function (e) {
     var hintString = "";
@@ -62,8 +78,6 @@ Page({
       hintString = "包裹数量必须是数字"
     } else if (e.detail.value.weight.length == 0 || !(/(^[0-9]*$)/.test(e.detail.value.weight))) {
       hintString = "重量必须是数字"
-    } else if (e.detail.value.item_name.length == 0) {
-      hintString = "寄托物不能为空"
     } else {
       var that = this;
       // 弹出加载框
@@ -97,7 +111,14 @@ Page({
           if (res.data.code == 20000) {
             that.setData({
               isShowBottom: "show",
-              channelList: res.data.data
+              channelList: res.data.data,
+              'expressInfo.temp_receive_address': e.detail.value.temp_receive_address,
+              'expressInfo.temp_send_address': e.detail.value.temp_send_address,
+              'expressInfo.remark': e.detail.value.remark,
+            })
+            wx.setStorage({
+              'key': "expressInfo",
+              "data": [that.data.expressInfo]
             })
           } else {
             that.showModal("查询价格失败，请联系客服！")

@@ -1,9 +1,10 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/deliver/deliver",
+    "pages/deliver/index/deliver",
     "pages/express/express",
-    "pages/home/home"
+    "pages/home/home",
+    "pages/deliver/home/home"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "deliver": "/pages/deliver/deliver",
+    "deliver": "/pages/deliver/home/home",
     "express": "/pages/express/express",
     "home": "/pages/home/home"
   }

@@ -8,7 +8,11 @@
 <view class="grid col-1 padding-sm">
   <view class="padding-sm">
     <view class="bg-blue padding radius text-center shadow-blur" bindtap="">
-      <view class="text-lg">寄快递</view>
+      <view class="cu-item">
+        <text class="cuIcon-deliver xxl"></text>
+      </view>
+      <view class="margin-top-sm text-Abc"></view>
+      <view class="text-lg" bindtap="goToDelever">寄快递</view>
       <view class="margin-top-sm text-Abc"></view>
     </view>
   </view>

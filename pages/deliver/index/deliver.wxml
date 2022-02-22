@@ -1,6 +1,6 @@
 <!--pages/deliver/deliver.wxml-->
-<view class="bg-img bg-mask padding-tb-xl" style="background-image: url('../../images/kd.png');height: 430rpx;">
-
+<view>
+	<image class="banner" mode='widthFix' src="../../../images/banner1.jpg"></image>
 </view>
 <form bindsubmit="formSubmit">
 	<view class="cu-form-group align-start">

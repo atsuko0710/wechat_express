@@ -1,0 +1,53 @@
+<view class="box">
+  <view class="cu-bar bg-white">
+    <view class="action border-title">
+      <text class="text-xl text-bold">运单查询</text>
+      <text class="bg-grey" style="width:2rem"></text>
+      <!-- 底部样式 last-child选择器-->
+    </view>
+  </view>
+</view>
+
+<view class="box">
+  <view class="cu-bar search bg-white">
+    <view class="search-form round basis-xl">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="输入运单" confirm-type="search" style="width: 408rpx; height: 64rpx; display: block; box-sizing: border-box"></input>
+    </view>
+    <view class="action" style="width: 272rpx; height: 64rpx; display: flex; box-sizing: border-box">
+      <button class="cu-btn bg-green shadow-blur round basis-sm">搜索</button>
+    </view>
+  </view>
+</view>
+
+<view class='total' style='background-color: #EBEBEB;'>
+  <view>
+    <view class='cont_count'>
+      <view class='seria'>
+        <label class='seriac_name'>
+          运单号：<text>11</text>
+        </label>
+        <label class='seriac_start'>揽收分配</label>
+      </view>
+      <view class='list'>
+        <view class="solids-bottom padding-xs flex align-center" style="width: 683rpx; height: 282rpx; display: flex; box-sizing: border-box; left: 0rpx; top: 0rpx">
+          <view class="flex-sub text-center" style="width: 664rpx; height: 139rpx; display: block; box-sizing: border-box">
+            <view class="solid-bottom text-xl padding" style="position: relative; left: -5rpx; top: -29rpx">
+              <text class="text-black text-bold text-xxl">广州 </text>
+              <text class="text-black text-bold text-xxl"> ---> </text>
+              <text class="text-black text-bold text-xxl">宜昌市 </text>
+            </view>
+          </view>
+        </view>
+      </view>
+      
+      <!-- 标签功能 -->
+      <view class='coent_list' style="width: 750rpx; height: 104rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx">
+        <!-- 取消订单 -->
+        <label class='coent_del'>取消订单</label>
+        <!-- 确认收货 -->
+        <label class='coent_log_base'>确认收货</label>
+      </view>
+    </view>
+  </view>
+</view>

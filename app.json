@@ -4,7 +4,8 @@
     "pages/deliver/index/deliver",
     "pages/express/express",
     "pages/home/home",
-    "pages/deliver/home/home"
+    "pages/deliver/home/home",
+    "pages/home/order/order"
   ],
   "window": {
     "backgroundTextStyle": "light",

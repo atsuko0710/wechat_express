@@ -1,0 +1,64 @@
+<!--pages/home/orderDetail/orderDetail.wxml-->
+<view class="cu-list menu sm-border card-menu margin-top">
+  <view class="cu-item">
+    <view class="content padding-tb-sm">
+      <view>
+        <text class="cuIcon-copy text-orange margin-right-xl"></text>
+        <text class="text-black text-bold text-xl">运单号</text>
+      </view>
+      <view class="text-gray text-xl margin-top margin-left">
+        <text selectable="truesz">YT2204598385503</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-item">
+    <view class="content padding-tb-sm">
+      <view>
+        <text class="cuIcon-time text-mauve margin-right-xl"></text>
+        <text class="text-black text-bold text-xl">下单时间</text>
+      </view>
+      <view class="text-gray text-xl margin-top margin-left">
+        <text selectable="truesz">2022-02-22 22:22:22</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-list menu sm-border card-menu margin-top">
+<view class="cu-item">
+    <view class="content padding-tb-sm">
+      <view>
+        <text class="cuIcon-location text-green margin-right-xl"></text>
+        <text class="text-black text-bold text-xl">寄：林丹 18814111111</text>
+      </view>
+      <view class="text-gray text-sm margin-top margin-left">
+        广东广州市海珠区
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-item">
+    <view class="content padding-tb-sm">
+      <view>
+        <text class="cuIcon-locationfill text-red margin-right-xl"></text>
+        <text class="text-black text-bold text-xl">收：林丹 18814111111</text>
+      </view>
+      <view class="text-gray text-sm margin-top margin-left">
+        广东广州市海珠区
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-item">
+    <view class="content padding-tb-sm">
+      <view>
+        <text class="cuIcon-text text-blue margin-right-xl"></text>
+        <text class="text-black text-bold text-xl">揽收信息</text>
+      </view>
+      <view class="text-gray text-sm margin-top margin-left">
+        快递员姓名:喻琦，电话:16620108630，工号:02426250，取件码:1789 网点信息:广东省广州市海珠区名粤公司 接单成功 网点联系电话:021-69777888业务员电话:16620108630
+      </view>
+    </view>
+  </view>
+</view>

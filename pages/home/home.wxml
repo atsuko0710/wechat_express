@@ -19,10 +19,16 @@
 
   <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/log/log" hover-class="none">
-        <text class="cuIcon-formfill text-green"></text>
-        <text class="text-grey">订单</text>
+      <navigator class="content" url="/pages/home/order/order">
+        <text class="cuIcon-formfill text-blue"></text>
+        <text class="text-grey text-bold">订单</text>
       </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" open-type="contact">
+        <text class="cuIcon-weixin text-green"></text>
+        <text class="text-grey">召唤客服</text>
+      </button>
     </view>
     <view class="cu-item arrow">
       <button class="cu-btn content" open-type="feedback">

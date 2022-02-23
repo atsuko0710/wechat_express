@@ -14,7 +14,7 @@
       "list": [
         {
           "name": "",
-          "pathName": "pages/home/order/order",
+          "pathName": "pages/index/index",
           "query": "",
           "scene": null
         }

@@ -20,34 +20,40 @@
   </view>
 </view>
 
-<view class='total' style='background-color: #EBEBEB;'>
+<view class='total box' style='background-color: #EBEBEB;' bindtap="goToDetail">
   <view>
-    <view class='cont_count'>
+    <view class='cont_count cont_count_1' style="width: 750rpx; height: 305rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx">
       <view class='seria'>
         <label class='seriac_name'>
-          运单号：<text>11</text>
+          运单号：<text selectable>11</text>
         </label>
         <label class='seriac_start'>揽收分配</label>
       </view>
       <view class='list'>
-        <view class="solids-bottom padding-xs flex align-center" style="width: 683rpx; height: 282rpx; display: flex; box-sizing: border-box; left: 0rpx; top: 0rpx">
-          <view class="flex-sub text-center" style="width: 664rpx; height: 139rpx; display: block; box-sizing: border-box">
-            <view class="solid-bottom text-xl padding" style="position: relative; left: -5rpx; top: -29rpx">
-              <text class="text-black text-bold text-xxl">广州 </text>
-              <text class="text-black text-bold text-xxl"> ---> </text>
-              <text class="text-black text-bold text-xxl">宜昌市 </text>
+        <view class="solids-bottom padding-xs flex align-center list_content">
+          <view class="flex-sub text-center list_content_1">
+            <view class="text-xl padding list_content_2">
+              <block>
+                <view class="grid col-3 margin-bottom text-center">
+                  <view class="padding">
+                    <text class="text-black text-bold text-xxl">广州</text>
+                  </view>
+                  <view class="padding">
+                    <image class="list_content_img" src="../../../images/jt.png" />
+                  </view>
+                  <view class="padding">
+                    <text class="text-black text-bold text-xxl">广州</text>
+                  </view>
+                </view>
+              </block>
+              <view class="grid col-1 margin-bottom text-center">
+                <text class="text-df">下单时间：2022-02-11</text>
+              </view>
             </view>
           </view>
         </view>
       </view>
-      
-      <!-- 标签功能 -->
-      <view class='coent_list' style="width: 750rpx; height: 104rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx">
-        <!-- 取消订单 -->
-        <label class='coent_del'>取消订单</label>
-        <!-- 确认收货 -->
-        <label class='coent_log_base'>确认收货</label>
-      </view>
     </view>
   </view>
 </view>
+

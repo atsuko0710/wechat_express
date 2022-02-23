@@ -17,6 +17,12 @@
           "pathName": "pages/index/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/home/order/order",
+          "query": "",
+          "scene": null
         }
       ]
     }

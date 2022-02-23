@@ -20,14 +20,14 @@
   </view>
 </view>
 
-<view class='total box' style='background-color: #EBEBEB;' bindtap="goToDetail">
+<view class='total box' style='background-color: #EBEBEB;' bindtap="goToDetail" wx:for="{{orderList}}" wx:for-index="index" wx:for-item="item" wx:key="index">
   <view>
-    <view class='cont_count cont_count_1' style="width: 750rpx; height: 305rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx">
+    <view class='cont_count cont_count_1'>
       <view class='seria'>
         <label class='seriac_name'>
-          运单号：<text selectable>11</text>
+          运单号：<text selectable>{{item.waybill ? item.waybill : "等待分配"}}</text>
         </label>
-        <label class='seriac_start'>揽收分配</label>
+        <label class='seriac_start'>{{item.collection_status ? item.collection_status : "等待分配"}}</label>
       </view>
       <view class='list'>
         <view class="solids-bottom padding-xs flex align-center list_content">
@@ -47,7 +47,7 @@
                 </view>
               </block>
               <view class="grid col-1 margin-bottom text-center">
-                <text class="text-df">下单时间：2022-02-11</text>
+                <text class="text-df">下单时间：{{item.created_at}}</text>
               </view>
             </view>
           </view>

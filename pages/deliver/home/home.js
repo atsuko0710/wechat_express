@@ -1,4 +1,6 @@
 // pages/deliver/home/home.js
+import login from "../../../utils/login"
+
 Page({
   data: {
     cardCur: 0,
@@ -8,6 +10,7 @@ Page({
       url: '../../../images/kd.png'
     }],
   },
+
   getCurrentIndex: function (e) {
     this.setData({
       cardCur: e.detail.current

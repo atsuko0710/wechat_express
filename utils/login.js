@@ -17,7 +17,8 @@ export default function () {
             method: 'POST',
             success: (result) => {
               // 成功之后储存token到本地
-              wx.setStorageSync("token", result.data.data.token);
+              wx.setStorageSync("access_token", result.data.data.token);
+              wepy.setStorageSync('access_token_expired_at', new Date().getTime() + 3600);
             }
           })
         } else {

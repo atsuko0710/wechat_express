@@ -111,7 +111,7 @@ Page({
           if (res.data.code == 20000) {
             that.setData({
               isShowBottom: "show",
-              channelList: res.data.data,
+              channelList: res.data.data.channel,
               'expressInfo.temp_receive_address': e.detail.value.temp_receive_address,
               'expressInfo.temp_send_address': e.detail.value.temp_send_address,
               'expressInfo.remark': e.detail.value.remark,

@@ -1,5 +1,4 @@
 // pages/deliver/home/home.js
-import login from "../../../utils/login"
 
 Page({
   data: {
@@ -20,7 +19,6 @@ Page({
     console.log(this.data.swiperList[this.data.cardCur])
   },
   goToDelever: function (e) {
-    console.log(e)
     wx.navigateTo({
       url: '/pages/deliver/index/deliver',
     })

@@ -1,75 +1,80 @@
+import authRequest from "../../../utils/request"
+
 const app = getApp();
+
 Page({
   data: {
     isShowBottom: "",
     channelList: [],
     CustomBar: app.globalData.CustomBar,
     loadModal: false,
-    expressInfo: []
+    expressInfo: [],
+    order_info_id: 0
   },
   onChannelClick: function (e) {
     var that = this;
     var index = e.currentTarget.dataset.index
-    var expressInfo = [];
-    console.log(that.data.channelList[index])
 
     wx.getStorage({
       key: 'expressInfo',
       success(res) {
-        expressInfo = res.data[0]
+        that.setData({
+          expressInfo: res.data[0]
+        })
       }
     })
-
+    console.log(that.data.channelList[index])
     // that.setData({
     //   isShowBottom: "",
     // })
     // that.showModal("支付功能正在加速完善中，请联系客服下单！")
 
-    wx.login({
-      success(res) {
-        if (res.code) {
-          //发起网络请求
-          wx.request({
-            url: 'https://money.atsukodan.cn/test',
-            header: {
-              "Content-Type": "application/x-www-form-urlencoded",
-              "headerSignature": app.globalData.signature
-            },
-            method: "POST",
-            data: {
-              code: res.code,
-              channel: that.data.channelList[index].channel,
-              price: that.data.channelList[index].price,
-              freight: that.data.channelList[index].freight,
-              temp_receive_address: expressInfo.temp_receive_address,
-              temp_send_address: expressInfo.temp_send_address,
-              remark: expressInfo.remark,
-            },
-            success: function (payRes) {
-              console.log(payRes.data)
-              // wx.requestPayment({
-              //   nonceStr: payRes.data.data.nonceStr,
-              //   package: payRes.data.data.package,
-              //   paySign: payRes.data.data.paySign,
-              //   signType: payRes.data.data.signType,
-              //   timeStamp: payRes.data.data.timestamp,
-              //   success: function (res) {
-              //     console.log('付款成功')
-              //     console.log(res)
-              //   },
-              //   fail: function (res) {
-              //     console.log('付款失败')
-              //     console.log(res)
-              //   }
-              // })
-            }
-          })
-        } else {
-          console.log('登录失败！' + res.errMsg)
-        }
+    authRequest({
+      url: "https://money.atsukodan.cn/weapp/order",
+      method: "POST",
+      data: {
+        channel: that.data.channelList[index].channel,
+        price: that.data.channelList[index].price,
+        freight: that.data.channelList[index].freight,
+        temp_receive_address: that.data.expressInfo.temp_receive_address,
+        temp_send_address: that.data.expressInfo.temp_send_address,
+        remark: that.data.expressInfo.remark,
+        channel_id: that.data.channelList[index].channelId,
+        order_info_id: that.data.order_info_id,
       }
+    }).then((res) => {
+      console.log(res)
+      if (res.data.code == 200) {
+        wx.requestPayment({
+          nonceStr: res.data.data.nonceStr,
+          package: res.data.data.package,
+          paySign: res.data.data.paySign,
+          signType: res.data.data.signType,
+          timeStamp: res.data.data.timestamp,
+          success: function (payRes) {
+            that.setData({
+              isShowBottom: "",
+            })
+            that.showModal("下单成功，请注意运单分配通知")
+          },
+          fail: function (err) {
+            console.log(err)
+            that.setData({
+              isShowBottom: "",
+            })
+            that.showModal("下单失败，请联系客服下单！")
+          }
+        })
+      }
+    }).catch((err) => {
+      console.log(err)
+      that.setData({
+        isShowBottom: "",
+      })
+      that.showModal("下单失败，请联系客服下单！")
     })
   },
+
   formSubmit: function (e) {
     var hintString = "";
     if (e.detail.value.temp_receive_address.length == 0 || e.detail.value.temp_send_address.length == 0) {
@@ -84,12 +89,8 @@ Page({
       that.setData({
         loadModal: true
       });
-      wx.request({
-        url: 'https://money.atsukodan.cn/order-search',
-        header: {
-          "Content-Type": "application/x-www-form-urlencoded",
-          "headerSignature": app.globalData.signature
-        },
+      authRequest({
+        url: "https://money.atsukodan.cn/weapp/order-search",
         method: "POST",
         data: {
           temp_receive_address: e.detail.value.temp_receive_address,
@@ -103,27 +104,29 @@ Page({
           insured: e.detail.value.insured,
           remark: e.detail.value.remark,
         },
-        success: function (res) {
-          console.log(res.data)
+      }).then((res) => {
+        console.log(res.data)
+        that.setData({
+          loadModal: false,
+        })
+        if (res.data.code == 200) {
           that.setData({
-            loadModal: false,
+            isShowBottom: "show",
+            channelList: res.data.data.channel,
+            order_info_id: res.data.data.order_info_id,
+            'expressInfo.temp_receive_address': e.detail.value.temp_receive_address,
+            'expressInfo.temp_send_address': e.detail.value.temp_send_address,
+            'expressInfo.remark': e.detail.value.remark,
           })
-          if (res.data.code == 20000) {
-            that.setData({
-              isShowBottom: "show",
-              channelList: res.data.data.channel,
-              'expressInfo.temp_receive_address': e.detail.value.temp_receive_address,
-              'expressInfo.temp_send_address': e.detail.value.temp_send_address,
-              'expressInfo.remark': e.detail.value.remark,
-            })
-            wx.setStorage({
-              'key': "expressInfo",
-              "data": [that.data.expressInfo]
-            })
-          } else {
-            that.showModal("查询价格失败，请联系客服！")
-          }
+          wx.setStorage({
+            'key': "expressInfo",
+            "data": [that.data.expressInfo]
+          })
+        } else {
+          that.showModal("查询价格失败，请联系客服！")
         }
+      }).catch((err) => {
+
       })
     }
     if (hintString) {

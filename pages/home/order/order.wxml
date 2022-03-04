@@ -20,7 +20,7 @@
   </view>
 </view>
 
-<view class='total box' style='background-color: #EBEBEB;' bindtap="goToDetail" wx:for="{{orderList}}" wx:for-index="index" wx:for-item="item" wx:key="index">
+<view class='total box' style='background-color: #EBEBEB;' bindtap="goToDetail" wx:for="{{orderList}}" wx:for-index="index" wx:for-item="item" wx:key="index"  data-index='{{index}}'>
   <view>
     <view class='cont_count cont_count_1'>
       <view class='seria'>
@@ -36,13 +36,13 @@
               <block>
                 <view class="grid col-3 margin-bottom text-center">
                   <view class="padding">
-                    <text class="text-black text-bold text-xxl">广州</text>
+                    <text class="text-black text-bold text-xxl">{{item.send_province}}</text>
                   </view>
                   <view class="padding">
                     <image class="list_content_img" src="../../../images/jt.png" />
                   </view>
                   <view class="padding">
-                    <text class="text-black text-bold text-xxl">广州</text>
+                    <text class="text-black text-bold text-xxl">{{item.receiver_province}}</text>
                   </view>
                 </view>
               </block>

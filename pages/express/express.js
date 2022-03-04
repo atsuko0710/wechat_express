@@ -1,4 +1,4 @@
-const app = getApp()
+import authRequest from "../../utils/request"
 
 Page({
   data: {
@@ -15,24 +15,18 @@ Page({
 
   startSearch: function (e) {
     var that = this;
-    console.log(this.data.waybill)
-    wx.request({
-      url: 'https://money.atsukodan.cn/kuaidi?waybill=' + this.data.waybill,
-      header: {
-        "headerSignature": app.globalData.signature
-      },
+    authRequest({
+      url: 'https://money.atsukodan.cn/kuaidi?waybill=' + that.data.waybill,
       method: "GET",
-      success(res) {
-        console.log(res)
-        if (res.data.code == 200) {
-          that.setData({
-            infoList: res.data.data,
-          });
-        } else {
-          that.setData({
-            infoList: ['查无信息'],
-          });
-        }
+    }).then((res) => {
+      if (res.data.code == 200) {
+        that.setData({
+          infoList: res.data.data,
+        });
+      } else {
+        that.setData({
+          infoList: ['查无信息'],
+        });
       }
     })
   }

@@ -55,7 +55,15 @@ Page({
             that.setData({
               isShowBottom: "",
             })
-            that.showModal("下单成功，请注意运单分配通知")
+            // 请求模版消息
+            wx.requestSubscribeMessage({
+              tmplIds: ["pjd-YQOmq9mDrV-0iyQ6PBO6epuniB60j7ycrbiqowc", "4rzQyrj9rEUmMkpVbd5eAmnK-ya3QCYH0NNDl93IslY"],
+              success:(res)=> {
+                //成功回调
+                console.log(res)
+                that.showModal("下单成功，请注意运单分配通知")
+              }
+            })
           },
           fail: function (err) {
             console.log(err)

@@ -7,7 +7,7 @@
         <text class="text-black text-bold text-xl">运单号</text>
       </view>
       <view class="text-gray text-xl margin-top margin-left">
-        <text selectable="truesz">{{order.waybill}}</text>
+        <text selectable="truesz">{{order.waybill ? order.waybill : "等待分配"}}</text>
       </view>
     </view>
   </view>
@@ -57,7 +57,7 @@
         <text class="text-black text-bold text-xl">揽收信息</text>
       </view>
       <view class="text-gray text-sm margin-top margin-left">
-        {{order.collection_info}}
+        {{order.collection_info ? order.collection_info : "等待更新"}}
       </view>
     </view>
   </view>

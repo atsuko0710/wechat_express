@@ -14,7 +14,7 @@
       <text class="cuIcon-search"></text>
       <input type="text" placeholder="输入运单" confirm-type="search" style="width: 408rpx; height: 64rpx; display: block; box-sizing: border-box"></input>
     </view>
-    <view class="action" style="width: 272rpx; height: 64rpx; display: flex; box-sizing: border-box">
+    <view class="action" style="width: 322rpx; height: 64rpx; display: flex; box-sizing: border-box">
       <button class="cu-btn bg-green shadow-blur round basis-sm">搜索</button>
     </view>
   </view>

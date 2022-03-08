@@ -11,8 +11,8 @@ Page({
   },
   onShareAppMessage() {
     return {
-      title: '便宜寄快递',
-      imageUrl: '/images/share.jpg',
+      title: '便宜快递代发',
+      imageUrl: '../../images/share.png',
       path: '/pages/index/index'
     }
   },

@@ -22,5 +22,5 @@ Page({
     wx.navigateTo({
       url: '/pages/deliver/index/deliver',
     })
-  }
+  },
 })

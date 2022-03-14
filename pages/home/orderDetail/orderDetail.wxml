@@ -7,9 +7,16 @@
         <text class="text-black text-bold text-xl">运单号</text>
       </view>
       <view class="text-gray text-xl margin-top margin-left">
-        <text selectable="truesz">{{order.waybill ? order.waybill : "等待分配"}}</text>
+        <text user-select="true">{{order.waybill ? order.waybill : "等待分配"}}</text>
       </view>
     </view>
+    <block wx:if="{{order.waybill}}">
+      <view class="action">
+        <button class="cu-btn round bg-green shadow" style="width: 162rpx; height: 61rpx; display: inline-flex; box-sizing: border-box; left: -40rpx; top: 0rpx" bindtap="toExpress">
+          <text class="cuIcon-pullright"></text> 物流</button>
+      </view>
+    </block>
+
   </view>
 
   <view class="cu-item">
@@ -26,7 +33,7 @@
 </view>
 
 <view class="cu-list menu sm-border card-menu margin-top">
-<view class="cu-item">
+  <view class="cu-item">
     <view class="content padding-tb-sm">
       <view>
         <text class="cuIcon-location text-green margin-right-xl"></text>

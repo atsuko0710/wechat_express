@@ -17,5 +17,12 @@ Page({
         });
       }
     })
+  },
+  toExpress() {
+    var waybill = this.data.order.waybill
+    // 跳转到物流信息页面
+    wx.navigateTo({
+      url: '/pages/express/express?waybill=' + waybill,
+    })
   }
 })

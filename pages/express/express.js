@@ -6,10 +6,17 @@ Page({
     waybill: ""
   },
 
+  onLoad: function (options) {
+    var that = this
+    that.setData({
+      waybill: options.waybill
+    })
+    that.startSearch()
+  },
+
   waybillInput: function (e) {
-    console.log(e.detail.value)
     this.setData({
-      'waybill': e.detail.value
+      waybill: e.detail.value
     })
   },
 

@@ -2,7 +2,7 @@
 <view>
   <image class="banner" mode='widthFix' src="../../images/banner1.jpg"></image>
   <view class="inp_box">
-    <input class="inp" type="text" placeholder="请输入快递单号" bindinput="waybillInput" />
+    <input class="inp" type="text" placeholder="请输入快递单号" bindinput="waybillInput" value="{{waybill}}"/>
     <image bindtap="startSearch" src="../../images/common/search.png" class="qrcode_images"></image>
   </view>
 

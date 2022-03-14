@@ -11,7 +11,7 @@ Page({
   },
   onShareAppMessage() {
     return {
-      title: '便宜快递代发',
+      title: '打工人省很多',
       imageUrl: '../../images/share.png',
       path: '/pages/index/index'
     }
@@ -26,6 +26,6 @@ Page({
         Log({ route: '路由', data: err })
       });
     }
-  }
+  },
 })
 

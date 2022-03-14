@@ -1,6 +1,6 @@
 <!--pages/home/home.wxml-->
 <scroll-view scroll-y class="scrollPage">
-  <view class="UCenter-bg">
+  <!-- <view class="UCenter-bg">
     <block wx:if="{{canIUseOpenData}}">
       <view class="userinfo-avatar" bindtap="bindViewTap">
         <open-data type="userAvatarUrl"></open-data>
@@ -15,7 +15,7 @@
     <block wx:else>
       <image bindtap="bindViewTap" src="{{userInfo.avatarUrl}}" class="png" mode="widthFix"></image>
     </block>
-  </view>
+  </view> -->
 
   <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
     <view class="cu-item arrow">

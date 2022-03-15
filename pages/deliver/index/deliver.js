@@ -89,8 +89,6 @@ Page({
       hintString = "发件人和寄件人不能为空"
     } else if (e.detail.value.package_count.length == 0 || !(/(^[0-9]*$)/.test(e.detail.value.package_count))) {
       hintString = "包裹数量必须是数字"
-    } else if (e.detail.value.weight.length == 0 || !(/(^[0-9]*$)/.test(e.detail.value.weight))) {
-      hintString = "重量必须是数字"
     } else {
       var that = this;
       // 弹出加载框

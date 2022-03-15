@@ -12,7 +12,7 @@
         <text class="cuIcon-deliver xxl"></text>
       </view>
       <view class="margin-top-sm text-Abc"></view>
-      <view class="text-lg" bindtap="goToDelever">寄快递</view>
+      <view class="text-lg" bindtap="goToDelever">查询价格</view>
       <view class="margin-top-sm text-Abc"></view>
     </view>
   </view>
@@ -23,10 +23,10 @@
     <text class="text-xxl text-black text-bold">⚠️ 注意事项</text>
     <view class="padding-sm"></view>
     <text class="text-xl">
-      请您务必当面与收件员核实快递重量与体积，遇超重补款与实物不符，请在货物签收前联系客服提交申诉\n
+      <!-- 请您务必当面与收件员核实快递重量与体积，遇超重补款与实物不符，请在货物签收前联系客服提交申诉\n -->
       结算重量取实际重量与体积重量中的大值，体积重量及实际重量均以中心称重测量值为准，体积重量(KG)=长（cm）*宽（cm）*高（cm）/6000 \n
-      超重提醒需4小时内补交费用，超时未补系统会自动拦截退回或修改成到付。\n
-      所有支付都在公众号上完成，如快递员上门取件时收费或收取超重运费，无需缴纳，联系客服处理。
+      <!-- 超重提醒需4小时内补交费用，超时未补系统会自动拦截退回或修改成到付。\n -->
+      所有支付都在公众号上完成，如业务员上门收费，无需缴纳，联系客服处理。
     </text>
   </view>
 </view>

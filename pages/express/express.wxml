@@ -6,6 +6,7 @@
     <image bindtap="startSearch" src="../../images/common/search.png" class="qrcode_images"></image>
   </view>
 
+  
   <view class="cu-timeline" wx:for="{{infoList}}" wx:for-index="index" wx:for-item="item" wx:key="index">
     <view class="cu-time">{{index}}</view>
     <view class="cu-item cur cuIcon-noticefill"  wx:for="{{item}}" wx:for-item="infoItem" wx:key="infoItem">

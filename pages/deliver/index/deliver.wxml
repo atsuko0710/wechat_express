@@ -4,16 +4,16 @@
 </view>
 <form bindsubmit="formSubmit">
 	<view class="cu-form-group align-start">
-		<view class="title"><text class="text-black text-bold">发件人</text></view>
-		<textarea maxlength="-1" disabled="{{modalName!=null}}" name="temp_send_address" placeholder="例如:北京市大兴区科创十一街京东集团总部,京小东,138****0000"></textarea>
+		<view class="title"><text class="text-black text-bold">始</text></view>
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" name="temp_send_address"></textarea>
 	</view>
 	<view class="cu-form-group align-start">
-		<view class="title"><text class="text-black text-bold">收件人</text></view>
-		<textarea maxlength="-1" disabled="{{modalName!=null}}" name="temp_receive_address" placeholder="例如:北京市大兴区科创十一街京东集团总部,京小东,138****0000"></textarea>
+		<view class="title"><text class="text-black text-bold">终</text></view>
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" name="temp_receive_address"></textarea>
 	</view>
 
 	<view class="cu-form-group margin-top">
-		<view class="title">包裹数量</view>
+		<view class="title">数量</view>
 		<input name="package_count"></input>
 		<view class="cu-capsule radius">
 			<view class="cu-tag line-blue">
@@ -21,10 +21,10 @@
 			</view>
 		</view>
 	</view>
-	<view class="cu-form-group">
-		<view class="title"><text class="text-black text-bold">寄托物 *</text></view>
+	<!-- <view class="cu-form-group">
+		<view class="title"><text class="text-black text-bold">类型 *</text></view>
 		<input name="item_name" placeholder="普货"></input>
-	</view>
+	</view> -->
 
 	<view class="cu-form-group margin-top">
 		<view class="title"> <text class="text-black text-bold">重量 *</text></view>
@@ -78,7 +78,7 @@
 	</view>
 
 	<view class="padding flex flex-direction">
-		<button class="cu-btn bg-blue lg" form-type="submit">查询运费</button>
+		<button class="cu-btn bg-blue lg" form-type="submit">查询</button>
 	</view>
 
 	<!-- 提示model -->

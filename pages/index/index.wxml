@@ -8,7 +8,7 @@
   </view>
   <view class="action text-gray add-action" bindtap="NavChange" data-cur="deliver">
     <button class="cu-btn cuIcon-add bg-green shadow"></button>
-    寄快递
+    查价格
   </view>
   <view class="action {{PageCur=='home'?'text-green':'text-gray'}}"  bindtap="NavChange" data-cur="home">
     <view class="cuIcon-my">
